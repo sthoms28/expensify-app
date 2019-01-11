@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import ExpenseForm from './Expenseform';
+import ExpenseForm from './ExpenseForm';
 import {editExpense, removeExpense} from '../actions/expenses'
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+// import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 export class EditExpensePage extends React.Component {
     
     onSubmit=(expense) => {
@@ -21,9 +21,7 @@ export class EditExpensePage extends React.Component {
         <div>
           <ExpenseForm
             expense={this.props.expense}
-            onSubmit={this.onSubmit}
-            
-        />
+            onSubmit={this.onSubmit} />
         <button onClick={this.onRemove}> Remove </button>
       </div>
     ); 
