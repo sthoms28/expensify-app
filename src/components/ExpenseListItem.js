@@ -1,24 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
-
+import moment from 'moment';
+import numeral from 'numeral';
 
 
 const ExpenseListItem = ({ id, description, amount, createdAt}) => (
-    
-      
     <div>
-    
       <Link to={`/edit/${id}`}>  <h3>  {description} </h3></Link>
-      <p>{amount}-{createdAt}</p>
-        
-       
-    </div>
+      <p>
+      {numeral(amount).format('$0,0.00')}
+      -
+      {moment(createdAt).format('MMMM Do, YYYY')}
+      </p>
+   </div>
 );
-const mapStateToProps = (state) => {
-    return {
-       expenses: removeExpense(state.expenses, state.filters)
+// const mapStateToProps = (state) => {
+//     return {
+//        expenses: removeExpense(state.expenses, state.filters)
        
-    };
-};
+//     };
+// };
   export default ExpenseListItem;
