@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import {addExpense} from '../actions/expenses'
-
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import {startAddExpense} from '../actions/expenses';
+//import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 export class AddExpensePage extends React.Component {
-  onSubmit = (expense) => {
-    this.props.addExpense(expense);
+
+  onSubmit=(expense) => {
+    console.log(expense);
+    this.props.startAddExpense(expense);
     this.props.history.push('/');
   };
   render() {
@@ -27,7 +28,7 @@ export class AddExpensePage extends React.Component {
 //     <ExpenseForm 
 //     onSubmit ={(expense) => {
 //       console.log(expense);
-//       //props.dispatch(addExpense(expense));
+//       props.dispatch(addExpense(expense));
 //       props.onSubmit(expense);
 //       props.history.push('/');
 //     }}
@@ -35,7 +36,8 @@ export class AddExpensePage extends React.Component {
 //   </div>
 // ); 
 const mapDispatchToProps = (dispatch) => ({
-      addExpense: (expense) => dispatch(addExpense(expense))
+ 
+  startAddExpense: (expense) => dispatch(startAddExpense(expense))
    });
 
-export default connect(mapDispatchToProps)(AddExpensePage);
+export default connect(undefined, mapDispatchToProps)(AddExpensePage);
